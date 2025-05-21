@@ -1,0 +1,60 @@
+>>>> The description of the data set
+
+Shujie Yao
+
+This package is the pre-processed sample data for the NiuTrans,
+which is a Phrase-based SMT system developed by NEU-NLPLab.
+
+>>> The sample data Contains five parts:
+1) TM-training-set 
+2) LM-training-set 
+3) Dev-set 
+4) Test-set
+5) Reference-for-evaluation
+
+>> TM-training-set
+TM-training-set is the bilingual data for training of translation model.
+We provide 199,630 sentence pairs as sample.
+TM-training-set contains 4 files:
+1) c.txt
+2) e.txt
+3) e.txt.keepcase
+4) AlignedTable.txt
+
+>> LM-training-set
+TM-training-set is the target unilingual data for training of language model.
+We provide 1,000,000 sentences in all.
+LM-training-set contains 1 file:
+1) e.lm.txt
+
+>> Dev-set
+Dev-set is development data containing 1,000 Chinese sentence pairs and one reference for each Chinese sentence.
+Dev-set contains 1 file：
+1) Niu.dev.txt
+
+>> Test-set
+Test-set is test data containing 1,000 monolingual Chinese sentences.
+Test-set contains 1 file:
+1) Niu.test.txt
+
+Please note the followings:
+Reference-for-evaluation is reference of test data, containing 1 file:
+1) Niu.test.reference
+
+Please note the followings:
+1) We do segmentation for all Chinese sentence in sample data using ICTCLAS2011,
+   which you can down load from http://ictclas.org/ictclas_download.aspx.
+2) The following process has been done for English sentences:
+   2.1) Tokenization
+   2.2) Upper case is folded to lowercase (except “e.txt.keepcase” in TM-training-set)
+3) After segmentation, all of words in Chinese sentence are separated by Spaces.
+4) The file “AlignedTable.txt” of TM-training-set is the word Alignment result of “c.txt” and “e.txt”.
+   Here, Chinese is the source language. The format of “AlignedTable.txt” is s_pos_id-t_pos_id.
+     For example:
+        the line 105 of the file "AlignedTable.txt" is "0-0 0-1 2-2 3-2 4-8 4-9 5-6 6-4 6-5 7-10"
+        the line 105 of the file "c.txt" is "爱尔兰 人 过去 用 马铃薯 作为 主食 ."
+        the line 105 of the file "e.txt" is "the irish used to live on a diet of potatoes ."
+        "0-1" means "爱尔兰" in chinses sentence is linked to "irish" in the corresponding English sentence.
+        And s_pos_id and t_pos_id are all start from 0.
+        NOTE: the word alignment result is the output of GIZA++,
+        which you can get from http://code.google.com/p/giza-pp/downloads/list.
